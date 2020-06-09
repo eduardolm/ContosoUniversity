@@ -45,7 +45,7 @@ namespace ContosoUniversity.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.LastName.Contains(searchString)
-                                               || s.FirstName.Contains(searchString));
+                                               || s.FirstMidName.Contains(searchString));
             }
             switch (sortOrder)
             {
@@ -100,7 +100,7 @@ namespace ContosoUniversity.Controllers
         [HttpPost, ActionName("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("EnrollmentDate,FirstName,LastName")] Student student)
+            [Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
         {
             try
             {
@@ -150,7 +150,7 @@ namespace ContosoUniversity.Controllers
             if (await TryUpdateModelAsync<Student>(
                 studentToUpdate,
                 "",
-                s => s.FirstName, s => s.LastName, s => s.EnrollmentDate))
+                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
             {
                 try
                 {
