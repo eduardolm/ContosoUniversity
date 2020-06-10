@@ -36,6 +36,7 @@ namespace ContosoUniversity.Data
                     EnrollmentDate = DateTime.Parse("2013-09-01") },
                 new Student { FirstMidName = "Nino",     LastName = "Olivetto",
                     EnrollmentDate = DateTime.Parse("2005-09-01") }
+
             };
 
             foreach (Student s in students)
